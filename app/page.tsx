@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 const buttons = [
@@ -9,12 +11,17 @@ const buttons = [
 ];
 
 export default function Home() {
+  const [display, setDisplay] = useState("0");
+  function handleButtonClick(value : string) {
+    setDisplay(value);
+  }
   return (
+    
     <main className="flex min-h-screen flex-col items-center justify-center bg-black p-4">
       <div className="w-full max-w-[320px]">
         {/* Where the numbers are shown */}
         <div className="flex h-32 items-end justify-end px-4 py-6">
-          <span className="text-7xl font-light text-white">0</span>
+          <span className="text-7xl font-light text-white">{display}</span>
         </div>
 
         {/* Keyboard (where I use .map) */}
@@ -29,6 +36,7 @@ export default function Home() {
               }
               ${btn === "0" ? "col-span-2 px-6 justify-start" : ""}
                `}
+               onClick={() => handleButtonClick(btn)}
               >
               {btn}
               </button>
