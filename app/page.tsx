@@ -12,9 +12,17 @@ const buttons = [
 
 export default function Home() {
   const [display, setDisplay] = useState("0");
+
+  // this function get the value and update the state with setDisplay
   function handleButtonClick(value : string) {
+
+   if (display == "0") {
     setDisplay(value);
+   }else {
+    setDisplay(display + value);
+   }
   }
+
   return (
     
     <main className="flex min-h-screen flex-col items-center justify-center bg-black p-4">
