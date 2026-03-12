@@ -16,10 +16,24 @@ export default function Home() {
   // this function get the value and update the state with setDisplay
   function handleButtonClick(value : string) {
 
+    switch (value) {
+      case "AC":
+        setDisplay("0");
+        return;
+        break;
+      case "=":
+        // Logic of equal
+
+        // there is something called eval but is not used because it can run malicioou code
+      break;
+    
+    }
+
    if (display == "0") {
     setDisplay(value);
    }else {
     setDisplay(display + value);
+    
    }
   }
 
