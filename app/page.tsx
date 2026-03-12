@@ -23,13 +23,42 @@ export default function Home() {
         break;
       case "=":
         // Logic of equal
+        const numbers = display.split(/[+x÷%-]/);
+        // setDisplay(numbers[1]);
+        const operator = ["+", "-", "x", "÷", "%"].find(op => display.includes(op));
+        let result = 0;
+        switch (operator) {
+          case "+":
+            result = Number(numbers[0]) + Number(numbers[1]);
+            setDisplay(String(result));
+            return
+          case "x":
+            result = Number(numbers[0]) * Number(numbers[1]);
+            setDisplay(String(result));
+          
+          return;
+          case "-":
+            result = Number(numbers[0]) - Number(numbers[1]);
+            setDisplay(String(result));
+          
+          return;
+          case "÷":
+            result = Number(numbers[0]) / Number(numbers[1]);
+            setDisplay(String(result));
+          
+          return;
+        
+          default:
+            break;
+        }
+        return;
 
         // there is something called eval but is not used because it can run malicioou code
       break;
     
     }
 
-   if (display == "0") {
+   if (display === "0") {
     setDisplay(value);
    }else {
     setDisplay(display + value);
