@@ -17,6 +17,7 @@ export default function Home() {
   function handleButtonClick(value : string) {
 
     switch (value) {
+
       case "AC":
         setDisplay("0");
         return;
@@ -47,7 +48,14 @@ export default function Home() {
             setDisplay(String(result));
           
           return;
-        
+          case "%":
+            result = Number(numbers[0]) % Number(numbers[1]);
+            setDisplay(String(result)); 
+          return;
+          case "+/-":
+            result = Number(numbers[0]) * -1;
+            setDisplay(String(result));
+          return;
           default:
             break;
         }
